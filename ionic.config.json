@@ -1,0 +1,7 @@
+{
+  "name": "MultiplosNum",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
