@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Lista de Números y Múltiplos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Ingrese un número</ion-label>
+    <ion-input type="number" [(ngModel)]="numeroIngresado"></ion-input>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-button expand="full" (click)="generarNumeros()">Generar Números</ion-button>
+
+  <!--Lista de num con multiplos-->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Números del 0 al {{ numeroIngresado }}</ion-label>
+    </ion-list-header>
+    @for (numero of numeros; track numero.valor) {
+      <ion-item>
+        <ion-label [style.color]="numero.color">
+          {{ numero.valor }}
+          @if (numero.multiplos.length > 0) {
+            <span> (Múltiplo de {{ numero.multiplos.join(', ') }})</span>
+          }
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+
+  <!--Lista de peticiones guardadas-->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Peticiones Guardadas</ion-label>
+    </ion-list-header>
+    @for (peticion of peticionesGuardadas; track peticion.id) {
+      <ion-item>
+        <ion-label>
+          Número ingresado: {{ peticion.numeroIngresado }}
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
 </ion-content>
