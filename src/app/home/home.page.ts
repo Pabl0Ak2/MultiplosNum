@@ -12,6 +12,7 @@ import {
   IonButton, 
   IonInput } from '@ionic/angular/standalone';
 import { FirestoreService } from '../services/firestore.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ import { FirestoreService } from '../services/firestore.service';
     IonList, 
     IonListHeader, 
     IonButton, 
-    IonInput
+    IonInput,
+    CommonModule
   ],
 })
 export class HomePage {    

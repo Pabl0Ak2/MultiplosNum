@@ -38,6 +38,8 @@
       <ion-item>
         <ion-label>
           Número ingresado: {{ peticion.numeroIngresado }}
+          <br>
+        <small>Fecha: {{ peticion.fecha.toDate() | date:'medium' }}</small>
         </ion-label>
       </ion-item>
     }
